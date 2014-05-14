@@ -1,0 +1,15 @@
+{
+  "name": "Downloader",
+  "version": "0.1.0",
+  "description": "The server and web frontend for a tool to download torrents and regular files",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/icbmike/Downloader.git"
+  },
+  "author": "Mike Little",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "requirejs": "~2.1.11"
+  }
+}
