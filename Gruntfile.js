@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 
 	  	//JSHINT Settings
 	  	jshint: {
-	  		src: ['Gruntfile.js', 'downloader/static/scripts/*.js']
+	  		src: ['Gruntfile.js', 'downloader/static/scripts/*.js'],
+	  		ignores: ['downloader/static/scripts/build.js']
 	  	},
 
 	  	//LESS Settings
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
 					'downloader/static/scripts/**/*.js',
 					'downloader/static/scripts/**/*.jsx'
 					],
-				tasks: ['browserify'],
+				tasks: ['jshint', 'browserify'],
 				options: {
 					spawn: false,
 				}
