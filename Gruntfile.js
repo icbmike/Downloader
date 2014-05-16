@@ -15,8 +15,11 @@ module.exports = function(grunt) {
 
 	  	//JSHINT Settings
 	  	jshint: {
-	  		src: ['Gruntfile.js', 'downloader/static/scripts/*.js'],
-	  		ignores: ['downloader/static/scripts/build.js']
+	  		all: [
+	  			'Gruntfile.js', 
+	  			'downloader/static/scripts/*.js',
+	  			'!downloader/static/scripts/build.js'
+  			]
 	  	},
 
 	  	//LESS Settings

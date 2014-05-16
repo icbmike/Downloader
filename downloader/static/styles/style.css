@@ -354,3 +354,10 @@ td,
 th {
   padding: 0;
 }
+main {
+  max-width: 800px;
+  min-width: 300px;
+  min-height: 100px;
+  position: relative;
+  margin: 0 auto;
+}
