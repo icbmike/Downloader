@@ -2,29 +2,54 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var LoginComponent = require('./components/login.jsx');
+
+
+var AppComponent = React.createClass({displayName: 'AppComponent',
+	render: function () {
+		return (
+			LoginComponent(null )
+		);
+	}
+});
+
+
+//We'll use the main element as our root container
+React.renderComponent(
+	AppComponent(),
+	document.getElementsByTagName("main")[0]
+);
+
+},{"./components/login.jsx":2,"react":138}],2:[function(require,module,exports){
+/** @jsx React.DOM */
+
+var React = require('react');
 
 module.exports = React.createClass({displayName: 'exports',
+	
+	//Click handler
+	handleClick: function(){
+		//Get input values
+		var username = this.refs.username.getDOMNode().value;
+		var password = this.refs.password.getDOMNode().value;
+		console.log(username);
+		console.log(password);
+	},
+
+	//THE Render method
 	render : function(){
 		return (
-			React.DOM.div( {className:"loginBox"}, 
-				"Login!"
+			React.DOM.div( {className:"loginComponent"}, 
+				React.DOM.h2(null, "Login"),
+				React.DOM.input( {type:"text", name:"username", ref:"username"} ),
+				React.DOM.input( {type:"password", name:"password", ref:"password"}),
+				React.DOM.button( {onClick:this.handleClick} , "Login")
 			)
 		);
 	}
 });
 
-},{"react":138}],2:[function(require,module,exports){
-var React = require('react');
-var LoginComponent = require('./components/login.jsx');
-
-//We'll use the main element as our root container
-
-React.renderComponent(
-	LoginComponent(),
-	document.getElementsByTagName("main")[0]
-);
-
-},{"./components/login.jsx":1,"react":138}],3:[function(require,module,exports){
+},{"react":138}],3:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -17420,4 +17445,4 @@ module.exports = warning;
 },{"./emptyFunction":99,"FWaASH":3}],138:[function(require,module,exports){
 module.exports = require('./lib/React');
 
-},{"./lib/React":27}]},{},[2])
+},{"./lib/React":27}]},{},[1])

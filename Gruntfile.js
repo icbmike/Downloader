@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 	  			transform: [ require('grunt-react').browserify ]
 	  		},
 	  		app: {
-	  			src: 'downloader/static/scripts/main.js',
+	  			src: 'downloader/static/scripts/app.jsx',
 	  			dest: 'downloader/static/scripts/build.js'
 	  		}
 	  	},

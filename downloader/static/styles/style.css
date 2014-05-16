@@ -361,3 +361,34 @@ main {
   position: relative;
   margin: 0 auto;
 }
+button {
+  background: white;
+  border: 1px solid;
+  padding: 3px 7px;
+}
+button:hover {
+  background: #eee;
+}
+/*
+This is the styling for the app component.
+Given that the app component is mostly controller logic,
+the styles in this file are mostly going to be positioning styling
+for child components
+*/
+main .loginComponent {
+  margin: 10px auto;
+}
+.loginComponent {
+  -webkit-box-shadow: 0px 7px 23px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 7px 23px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 7px 23px 0px rgba(50, 50, 50, 0.75);
+  width: 270px;
+  padding: 5px 10px 10px 10px;
+}
+.loginComponent h2 {
+  margin-top: 0px;
+}
+.loginComponent input {
+  display: block;
+  margin-bottom: 7px;
+}
