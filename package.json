@@ -16,7 +16,10 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-less": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-react": "^0.8.2",
+    "grunt-react": "^0.8.2"
+  },
+  "dependencies": {
+    "request": "^2.35.0",
     "react": "^0.10.0"
   }
 }
