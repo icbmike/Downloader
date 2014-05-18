@@ -369,6 +369,13 @@ button {
 button:hover {
   background: #eee;
 }
+button:disabled {
+  background: #eee;
+  color: #aaa;
+}
+.error {
+  color: red;
+}
 /*
 This is the styling for the app component.
 Given that the app component is mostly controller logic,
@@ -386,7 +393,11 @@ main .loginComponent {
   padding: 5px 10px 10px 10px;
 }
 .loginComponent h2 {
-  margin-top: 0px;
+  margin: 0px;
+}
+.loginComponent span.error {
+  display: inline-block;
+  margin: 5px 0px;
 }
 .loginComponent input {
   display: block;
