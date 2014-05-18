@@ -57,6 +57,8 @@ docs/_build/
 # NPM
 node_modules/
 
+#javascript built files
+build.js
 
 #Database stuff
 *.sqlite

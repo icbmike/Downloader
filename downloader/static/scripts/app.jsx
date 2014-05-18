@@ -12,20 +12,12 @@ var AppComponent = React.createClass({
 		apiService: React.PropTypes.instanceOf(ApiService).isRequired
 	},
 
-	getInitialState: function(){
-		return {
-			authToken: null
-		};
-	},
-
 	loginHandler: function(loginState){
-		var token = this.props.apiService.Login(loginState.username, loginState.password);
-		if(token == null){
+		var success = this.props.apiService.Login(loginState.username, loginState.password);
+		if(!success){
 			this.refs.loginComponent.loginFailed();
 		}else{
-			setState({
-				authToken: token
-			});
+			this.forceUpdate();	
 		}
 	},
 
@@ -34,7 +26,7 @@ var AppComponent = React.createClass({
 		return (
 			<main>
 				{
-					this.state.authToken !== null
+					this.props.apiService.isAuthenticated()
 					? <MainWindow />
 					: <LoginComponent submitHandler={this.loginHandler} ref="loginComponent" />
 				}
