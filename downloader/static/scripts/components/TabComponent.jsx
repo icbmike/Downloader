@@ -4,6 +4,13 @@ var React = require('react');
 
 module.exports = React.createClass({
 
+	handleTabClick: function (e) {
+
+		this.setState({
+			selectedIndex: Array.prototype.indexOf.call(this.refs.tabLabels.getDOMNode().childNodes, e.target)
+		});
+	},
+
 	getInitialState: function(){
 		return {
 			selectedIndex : 0
@@ -13,8 +20,8 @@ module.exports = React.createClass({
 	render: function () {
 
 		var tabLabels = React.Children.map(this.props.children, function(component) {
-			return <li>{component.props.title}</li>;
-		});
+			return <li onClick={this.handleTabClick}>{component.props.title}</li>;
+		}.bind(this));
 
 		var content = this.props.children !== undefined
 			? this.props.children[this.state.selectedIndex]
@@ -22,7 +29,7 @@ module.exports = React.createClass({
 
 		return (
 			<div className="tabComponent">
-				<ul className="tabs">
+				<ul className="tabs" ref="tabLabels">
 					{tabLabels}
 				</ul>
 				<div className="tabContent">

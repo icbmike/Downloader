@@ -9,7 +9,7 @@ var AComponent = React.createClass({
 });
 
 var BComponent = React.createClass({
-	render: function(){return (<p>Thingy</p>);}
+	render: function(){return (<p>Thingy BITCH</p>);}
 });
 
 module.exports = React.createClass({
