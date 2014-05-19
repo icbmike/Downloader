@@ -6,7 +6,8 @@ module.exports = React.createClass({
 	
 	//propTypes
 	propTypes: {
-		submitHandler : React.PropTypes.func
+		loginHandler : React.PropTypes.func,
+		registerHandler : React.PropTypes.func
 	},
 
 	//Setup
@@ -19,15 +20,35 @@ module.exports = React.createClass({
 		}
 	},
 
-	//Click handler
-	handleClick: function(e){
-		//disable the button to prevent subsequent requests while waiting for a response
+	_toggleButtons: function(enabled){
+		if(enabled){
+			//enable the buttons
+			this.refs.loginButton.getDOMNode().removeAttribute("disabled");
+			this.refs.registerButton.getDOMNode().removeAttribute("disabled");
+		}else{
+			//disable the button to prevent subsequent requests while waiting for a response
+			this.refs.loginButton.getDOMNode().setAttribute("disabled", true);
+			this.refs.registerButton.getDOMNode().setAttribute("disabled", true);
+		}
 
-		e.target.setAttribute("disabled", "true");
+	},
 
-		if (this.props.submitHandler !== undefined){
-			//Call the submitHandler callback if it were defined
-			this.props.submitHandler(this.state);
+	//Click handlers
+	handleLoginClick: function(e){
+		this._toggleButtons(false);
+
+		if (this.props.loginHandler !== undefined){
+			//Call the loginHandler callback if it was defined
+			this.props.loginHandler(this.state);
+		}
+	},
+
+	handleRegisterClick: function(e){
+		this._toggleButtons(false);
+
+		if (this.props.registerHandler !== undefined){
+			//Call the registerHandler callback if it was defined
+			this.props.registerHandler(this.state);
 		}
 	},
 
@@ -42,12 +63,12 @@ module.exports = React.createClass({
 		});
 	},
 	
-	loginFailed: function(){
-		//renable the button
-		e.target.setAttribute("disabled", "false");
-		
+	loginFailed: function(errorMessage){
+		//renable the buttons
+		this._toggleButtons(true);
+
 		this.setState({
-			error: "Failed to login"
+			error: errorMessage
 		});
 
 	},
@@ -57,13 +78,17 @@ module.exports = React.createClass({
 		return (
 			<div className="loginComponent">
 				<h2>Login</h2>
+				
 				{this.state.error === null
 					? '' 
 					: <span className="error">{this.state.error}</span>
 				}
+				
 				<input type="text" ref="username" value={this.state.username} onChange={this.handleChange} />
 				<input type="password" ref="password" value={this.state.password} onChange={this.handleChange} />
-				<button onClick={this.handleClick} ref="button">Login</button>
+				
+				<button onClick={this.handleRegisterClick} ref="registerButton">Register</button>
+				<button onClick={this.handleLoginClick} ref="loginButton">Login</button>
 			</div>
 		);
 	}

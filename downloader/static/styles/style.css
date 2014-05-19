@@ -393,7 +393,7 @@ main .loginComponent {
   padding: 5px 10px 10px 10px;
 }
 .loginComponent h2 {
-  margin: 0px;
+  margin: 0 0 5px 0;
 }
 .loginComponent span.error {
   display: inline-block;
@@ -402,4 +402,7 @@ main .loginComponent {
 .loginComponent input {
   display: block;
   margin-bottom: 7px;
+}
+.loginComponent button {
+  margin-right: 10px;
 }

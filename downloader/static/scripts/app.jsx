@@ -1,8 +1,12 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+
+//Components
 var LoginComponent = require('./components/login.jsx');
 var MainWindow = require('./components/mainWindow.jsx');
+
+//Services
 var ApiService = require('./services/apiService.js');
 
 var AppComponent = React.createClass({
@@ -13,12 +17,23 @@ var AppComponent = React.createClass({
 	},
 
 	loginHandler: function(loginState){
-		var success = this.props.apiService.Login(loginState.username, loginState.password);
-		if(!success){
-			this.refs.loginComponent.loginFailed();
-		}else{
-			this.forceUpdate();	
-		}
+		this.props.apiService.login(loginState.username, loginState.password, function(success){
+			if(!success){
+				this.refs.loginComponent.loginFailed("Failed to login");
+			}else{
+				this.forceUpdate();	
+			}
+		}.bind(this));
+	},
+
+	registerHandler: function (registerState){
+		this.props.apiService.register(registerState.username, registerState.password, function(success){
+			if(!success){
+				this.refs.loginComponent.loginFailed("Failed to register");
+			}else{
+				this.forceUpdate();	
+			}
+		}.bind(this));
 	},
 
 	//Render method
@@ -28,7 +43,7 @@ var AppComponent = React.createClass({
 				{
 					this.props.apiService.isAuthenticated()
 					? <MainWindow />
-					: <LoginComponent submitHandler={this.loginHandler} ref="loginComponent" />
+					: <LoginComponent loginHandler={this.loginHandler} registerHandler={this.registerHandler} ref="loginComponent" />
 				}
 			</main>
 		);

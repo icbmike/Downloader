@@ -4,6 +4,10 @@ var React = require('react');
 
 module.exports = React.createClass({
 	render: function(){
-		<div></div>
+		return(
+			<div>
+				Main Window
+			</div>
+		);
 	}
 });
