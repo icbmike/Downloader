@@ -17,12 +17,22 @@ var AppComponent = React.createClass({
 	},
 
 	loginHandler: function(loginState){
-		this.props.apiService.login(loginState.username, loginState.password, function(success){
-			if(!success){
-				this.refs.loginComponent.loginFailed("Failed to login");
-			}else{
-				this.forceUpdate();	
-			}
+		
+		//ApiService returns a Promise
+		var promise = this.props.apiService.login(loginState.username, loginState.password);
+
+		//success
+		promise.then(function(){
+			//Get the component to check if we have a token
+			this.forceUpdate();
+		}.bind(this),
+
+		//failure
+		function(){
+			//set the failure message
+			this.refs.loginComponent.loginFailed("Failed to login");
+			//Get the component to check if we have a token
+			this.forceUpdate();
 		}.bind(this));
 	},
 

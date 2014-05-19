@@ -2,23 +2,40 @@
 var $ = require('jquery');
 
 function ApiService(){
-	this.token = null;	
+	this.token = null;
+	this.expiryTime = null;
 }
 
-ApiService.prototype.login = function(username, password, callback) {
+ApiService.prototype.login = function(username, password) {
 	
-	var request = $.ajax({
+	var loginPromise = $.ajax({
 		url: "/api/token",
 		username: username,
 		password: password,
-		complete: function(jqXHR, textStatus){
-			
-			this.token = jqXHR.responseJSON.token;
-			
-			if(callback !== undefined){
-				callback(jqXHR.status === 200);
-			}
-		}
+		
+	});
+
+	var that = this;
+
+	return loginPromise.then(function(response, textStatus, jqXHR){
+		
+		//save the token
+		that.token = response.token;
+		
+		//save the duration time so that we can get a new token if we think that 
+		//our token has expired
+		var t = new Date();
+		t.setSeconds(t.getSeconds() + parseInt(response.duration) - 10);
+
+		that.expiryTime = t;
+
+		//Indicate that the login was succesful
+		return true;
+
+	}, function(jqXHR, textStatus, errorThrown){
+		
+		//Indicate that the login failed
+		return false;
 	});
 
 };
