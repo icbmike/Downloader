@@ -16,34 +16,8 @@ var AppComponent = React.createClass({
 		apiService: React.PropTypes.instanceOf(ApiService).isRequired
 	},
 
-	loginHandler: function(loginState){
-		
-		//ApiService returns a Promise
-		var promise = this.props.apiService.login(loginState.username, loginState.password);
-
-		//success
-		promise.then(function(){
-			//Get the component to check if we have a token
-			this.forceUpdate();
-		}.bind(this),
-
-		//failure
-		function(){
-			//set the failure message
-			this.refs.loginComponent.loginFailed("Failed to login");
-			//Get the component to check if we have a token
-			this.forceUpdate();
-		}.bind(this));
-	},
-
-	registerHandler: function (registerState){
-		this.props.apiService.register(registerState.username, registerState.password, function(success){
-			if(!success){
-				this.refs.loginComponent.loginFailed("Failed to register");
-			}else{
-				this.forceUpdate();	
-			}
-		}.bind(this));
+	loginHandler: function(){
+		this.forceUpdate();
 	},
 
 	//Render method
@@ -53,7 +27,7 @@ var AppComponent = React.createClass({
 				{
 					this.props.apiService.isAuthenticated()
 					? <MainWindow />
-					: <LoginComponent loginHandler={this.loginHandler} registerHandler={this.registerHandler} ref="loginComponent" />
+					: <LoginComponent loginSuccessHandler={this.loginHandler} apiService={this.props.apiService} ref="loginComponent" />
 				}
 			</main>
 		);

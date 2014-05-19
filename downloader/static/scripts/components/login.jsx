@@ -1,13 +1,14 @@
 /** @jsx React.DOM */
 
 var React = require('react');
+var ApiService = require('../services/apiService.js');
 
 module.exports = React.createClass({
 	
 	//propTypes
 	propTypes: {
-		loginHandler : React.PropTypes.func,
-		registerHandler : React.PropTypes.func
+		loginSuccessHandler : React.PropTypes.func,
+		apiService: React.PropTypes.instanceOf(ApiService).isRequired
 	},
 
 	//Setup
@@ -37,40 +38,48 @@ module.exports = React.createClass({
 	handleLoginClick: function(e){
 		this._toggleButtons(false);
 
-		if (this.props.loginHandler !== undefined){
-			//Call the loginHandler callback if it was defined
-			this.props.loginHandler(this.state);
-		}
+		//ApiService returns a Promise
+		var promise = this.props.apiService.login(this.state.username, this.state.password);
+
+		//success
+		promise.then(
+			function(){
+				this.props.loginSuccessHandler();
+			}.bind(this),
+
+			//failure
+			function(){
+				//set the failure message
+				this.setState({
+					error: "Failed to login"
+				});
+				
+				//renable the buttons
+				this._toggleButtons(true);
+
+			}.bind(this));
 	},
 
 	handleRegisterClick: function(e){
 		this._toggleButtons(false);
 
-		if (this.props.registerHandler !== undefined){
-			//Call the registerHandler callback if it was defined
-			this.props.registerHandler(this.state);
-		}
+		this.props.apiService.register(this.state.username, this.state.password, function(success){
+			if(!success){
+				//set the failure message
+				this.setState({
+					error: "Failed to register"
+				});
+			}
+			this._toggleButtons(true);
+		}.bind(this));
 	},
 
 	handleChange: function(e){
-		//Get input values
-		var username = this.refs.username.getDOMNode().value;
-		var password = this.refs.password.getDOMNode().value;
 
 		this.setState({
-			username: username, 
-			password: password
+			username: this.refs.username.getDOMNode().value, 
+			password: this.refs.password.getDOMNode().value
 		});
-	},
-	
-	loginFailed: function(errorMessage){
-		//renable the buttons
-		this._toggleButtons(true);
-
-		this.setState({
-			error: errorMessage
-		});
-
 	},
 
 	//THE Render method
