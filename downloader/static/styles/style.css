@@ -406,3 +406,40 @@ main .loginComponent {
 .loginComponent button {
   margin-right: 10px;
 }
+.tabComponent .tabs {
+  padding-left: 0px;
+  margin: 0;
+  border-bottom: 1px solid #aaaaaa;
+}
+.tabComponent .tabs .tab {
+  display: inline-block;
+  border: 1px solid #aaaaaa;
+  border-bottom: 2px solid #aaaaaa;
+  width: auto;
+  height: 20px;
+  padding: 7px 15px;
+  margin-right: 5px;
+  cursor: pointer;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.tabComponent .tabs .tab.active {
+  color: #0080ff;
+  border-bottom: 2px solid #0080ff;
+}
+.tabComponent .tabContent {
+  padding: 5px;
+}

@@ -19,9 +19,9 @@ module.exports = React.createClass({
 			<div className="mainWindow">
 				<h1>Downloader</h1>
 				<TabComponent>
-					<AComponent title="Heyo" />
+					<AComponent title="Downloads" />
 					
-					<BComponent title="Thingy" />
+					<BComponent title="Settings" />
 
 				</TabComponent>
 			</div>
