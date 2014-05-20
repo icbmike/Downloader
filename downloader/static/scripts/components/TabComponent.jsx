@@ -22,7 +22,7 @@ module.exports = React.createClass({
 		var tabLabels = React.Children.map(this.props.children, function(component, index) {
 			var classString = "tab" + (index === this.state.selectedIndex ? " active" : "");
 
-			return <li className={classString} onClick={this.handleTabClick}>{component.props.title}</li>;
+			return <li className={classString} onClick={this.handleTabClick}>{component.props.tabTitle}</li>;
 		}.bind(this));
 
 		var content = this.props.children !== undefined

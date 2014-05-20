@@ -4,24 +4,28 @@ var React = require('react');
 
 var TabComponent = require('./TabComponent.jsx');
 
-var AComponent = React.createClass({
-	render: function(){return (<p>Heyo BOI</p>);}
-});
+var DownloadListComponent = require('./DownloadListComponent.jsx');
 
-var BComponent = React.createClass({
-	render: function(){return (<p>Thingy BITCH</p>);}
-});
+var SettingsComponent = require('./SettingsComponent.jsx');
+
+//Services
+var ApiService = require('../services/apiService.js');
 
 module.exports = React.createClass({
 	
+	//propTypes
+	propTypes: {
+		apiService: React.PropTypes.instanceOf(ApiService).isRequired
+	},
+
 	render: function(){
 		return(
 			<div className="mainWindow">
 				<h1>Downloader</h1>
 				<TabComponent>
-					<AComponent title="Downloads" />
+					<DownloadListComponent apiService={this.props.apiService} tabTitle="Downloads" />
 					
-					<BComponent title="Settings" />
+					<SettingsComponent tabTitle="Settings" />
 
 				</TabComponent>
 			</div>
