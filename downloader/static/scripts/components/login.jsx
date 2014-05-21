@@ -21,6 +21,10 @@ module.exports = React.createClass({
 		}
 	},
 
+	componentDidMount: function(){
+		this.refs.username.getDOMNode().focus();
+	},
+
 	_toggleButtons: function(enabled){
 		if(enabled){
 			//enable the buttons

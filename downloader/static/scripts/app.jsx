@@ -26,7 +26,7 @@ var AppComponent = React.createClass({
 			<main>
 				{
 					this.props.apiService.isAuthenticated()
-					? <MainWindow />
+					? <MainWindow apiService={this.props.apiService} />
 					: <LoginComponent loginSuccessHandler={this.loginHandler} apiService={this.props.apiService} ref="loginComponent" />
 				}
 			</main>

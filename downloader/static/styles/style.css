@@ -443,3 +443,347 @@ main .loginComponent {
 .tabComponent .tabContent {
   padding: 5px;
 }
+.progressBarComponent {
+  width: 100%;
+  height: 25px;
+  background-color: white;
+  padding: 2px;
+  border: 1px solid #aaaaaa;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.progressBarComponent .progressBar {
+  height: 100%;
+  padding-bottom: 4px;
+  padding-right: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #0080ff;
+  background-clip: content-box;
+  position: absolute;
+}
+.progressBarComponent .progressText {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.progressBarComponent .progressBar[data-progress="100%"] {
+  width: 100%;
+}
+.progressBarComponent .progressBar[data-progress="99%"] {
+  width: 99%;
+}
+.progressBarComponent .progressBar[data-progress="98%"] {
+  width: 98%;
+}
+.progressBarComponent .progressBar[data-progress="97%"] {
+  width: 97%;
+}
+.progressBarComponent .progressBar[data-progress="96%"] {
+  width: 96%;
+}
+.progressBarComponent .progressBar[data-progress="95%"] {
+  width: 95%;
+}
+.progressBarComponent .progressBar[data-progress="94%"] {
+  width: 94%;
+}
+.progressBarComponent .progressBar[data-progress="93%"] {
+  width: 93%;
+}
+.progressBarComponent .progressBar[data-progress="92%"] {
+  width: 92%;
+}
+.progressBarComponent .progressBar[data-progress="91%"] {
+  width: 91%;
+}
+.progressBarComponent .progressBar[data-progress="90%"] {
+  width: 90%;
+}
+.progressBarComponent .progressBar[data-progress="89%"] {
+  width: 89%;
+}
+.progressBarComponent .progressBar[data-progress="88%"] {
+  width: 88%;
+}
+.progressBarComponent .progressBar[data-progress="87%"] {
+  width: 87%;
+}
+.progressBarComponent .progressBar[data-progress="86%"] {
+  width: 86%;
+}
+.progressBarComponent .progressBar[data-progress="85%"] {
+  width: 85%;
+}
+.progressBarComponent .progressBar[data-progress="84%"] {
+  width: 84%;
+}
+.progressBarComponent .progressBar[data-progress="83%"] {
+  width: 83%;
+}
+.progressBarComponent .progressBar[data-progress="82%"] {
+  width: 82%;
+}
+.progressBarComponent .progressBar[data-progress="81%"] {
+  width: 81%;
+}
+.progressBarComponent .progressBar[data-progress="80%"] {
+  width: 80%;
+}
+.progressBarComponent .progressBar[data-progress="79%"] {
+  width: 79%;
+}
+.progressBarComponent .progressBar[data-progress="78%"] {
+  width: 78%;
+}
+.progressBarComponent .progressBar[data-progress="77%"] {
+  width: 77%;
+}
+.progressBarComponent .progressBar[data-progress="76%"] {
+  width: 76%;
+}
+.progressBarComponent .progressBar[data-progress="75%"] {
+  width: 75%;
+}
+.progressBarComponent .progressBar[data-progress="74%"] {
+  width: 74%;
+}
+.progressBarComponent .progressBar[data-progress="73%"] {
+  width: 73%;
+}
+.progressBarComponent .progressBar[data-progress="72%"] {
+  width: 72%;
+}
+.progressBarComponent .progressBar[data-progress="71%"] {
+  width: 71%;
+}
+.progressBarComponent .progressBar[data-progress="70%"] {
+  width: 70%;
+}
+.progressBarComponent .progressBar[data-progress="69%"] {
+  width: 69%;
+}
+.progressBarComponent .progressBar[data-progress="68%"] {
+  width: 68%;
+}
+.progressBarComponent .progressBar[data-progress="67%"] {
+  width: 67%;
+}
+.progressBarComponent .progressBar[data-progress="66%"] {
+  width: 66%;
+}
+.progressBarComponent .progressBar[data-progress="65%"] {
+  width: 65%;
+}
+.progressBarComponent .progressBar[data-progress="64%"] {
+  width: 64%;
+}
+.progressBarComponent .progressBar[data-progress="63%"] {
+  width: 63%;
+}
+.progressBarComponent .progressBar[data-progress="62%"] {
+  width: 62%;
+}
+.progressBarComponent .progressBar[data-progress="61%"] {
+  width: 61%;
+}
+.progressBarComponent .progressBar[data-progress="60%"] {
+  width: 60%;
+}
+.progressBarComponent .progressBar[data-progress="59%"] {
+  width: 59%;
+}
+.progressBarComponent .progressBar[data-progress="58%"] {
+  width: 58%;
+}
+.progressBarComponent .progressBar[data-progress="57%"] {
+  width: 57%;
+}
+.progressBarComponent .progressBar[data-progress="56%"] {
+  width: 56%;
+}
+.progressBarComponent .progressBar[data-progress="55%"] {
+  width: 55%;
+}
+.progressBarComponent .progressBar[data-progress="54%"] {
+  width: 54%;
+}
+.progressBarComponent .progressBar[data-progress="53%"] {
+  width: 53%;
+}
+.progressBarComponent .progressBar[data-progress="52%"] {
+  width: 52%;
+}
+.progressBarComponent .progressBar[data-progress="51%"] {
+  width: 51%;
+}
+.progressBarComponent .progressBar[data-progress="50%"] {
+  width: 50%;
+}
+.progressBarComponent .progressBar[data-progress="49%"] {
+  width: 49%;
+}
+.progressBarComponent .progressBar[data-progress="48%"] {
+  width: 48%;
+}
+.progressBarComponent .progressBar[data-progress="47%"] {
+  width: 47%;
+}
+.progressBarComponent .progressBar[data-progress="46%"] {
+  width: 46%;
+}
+.progressBarComponent .progressBar[data-progress="45%"] {
+  width: 45%;
+}
+.progressBarComponent .progressBar[data-progress="44%"] {
+  width: 44%;
+}
+.progressBarComponent .progressBar[data-progress="43%"] {
+  width: 43%;
+}
+.progressBarComponent .progressBar[data-progress="42%"] {
+  width: 42%;
+}
+.progressBarComponent .progressBar[data-progress="41%"] {
+  width: 41%;
+}
+.progressBarComponent .progressBar[data-progress="40%"] {
+  width: 40%;
+}
+.progressBarComponent .progressBar[data-progress="39%"] {
+  width: 39%;
+}
+.progressBarComponent .progressBar[data-progress="38%"] {
+  width: 38%;
+}
+.progressBarComponent .progressBar[data-progress="37%"] {
+  width: 37%;
+}
+.progressBarComponent .progressBar[data-progress="36%"] {
+  width: 36%;
+}
+.progressBarComponent .progressBar[data-progress="35%"] {
+  width: 35%;
+}
+.progressBarComponent .progressBar[data-progress="34%"] {
+  width: 34%;
+}
+.progressBarComponent .progressBar[data-progress="33%"] {
+  width: 33%;
+}
+.progressBarComponent .progressBar[data-progress="32%"] {
+  width: 32%;
+}
+.progressBarComponent .progressBar[data-progress="31%"] {
+  width: 31%;
+}
+.progressBarComponent .progressBar[data-progress="30%"] {
+  width: 30%;
+}
+.progressBarComponent .progressBar[data-progress="29%"] {
+  width: 29%;
+}
+.progressBarComponent .progressBar[data-progress="28%"] {
+  width: 28%;
+}
+.progressBarComponent .progressBar[data-progress="27%"] {
+  width: 27%;
+}
+.progressBarComponent .progressBar[data-progress="26%"] {
+  width: 26%;
+}
+.progressBarComponent .progressBar[data-progress="25%"] {
+  width: 25%;
+}
+.progressBarComponent .progressBar[data-progress="24%"] {
+  width: 24%;
+}
+.progressBarComponent .progressBar[data-progress="23%"] {
+  width: 23%;
+}
+.progressBarComponent .progressBar[data-progress="22%"] {
+  width: 22%;
+}
+.progressBarComponent .progressBar[data-progress="21%"] {
+  width: 21%;
+}
+.progressBarComponent .progressBar[data-progress="20%"] {
+  width: 20%;
+}
+.progressBarComponent .progressBar[data-progress="19%"] {
+  width: 19%;
+}
+.progressBarComponent .progressBar[data-progress="18%"] {
+  width: 18%;
+}
+.progressBarComponent .progressBar[data-progress="17%"] {
+  width: 17%;
+}
+.progressBarComponent .progressBar[data-progress="16%"] {
+  width: 16%;
+}
+.progressBarComponent .progressBar[data-progress="15%"] {
+  width: 15%;
+}
+.progressBarComponent .progressBar[data-progress="14%"] {
+  width: 14%;
+}
+.progressBarComponent .progressBar[data-progress="13%"] {
+  width: 13%;
+}
+.progressBarComponent .progressBar[data-progress="12%"] {
+  width: 12%;
+}
+.progressBarComponent .progressBar[data-progress="11%"] {
+  width: 11%;
+}
+.progressBarComponent .progressBar[data-progress="10%"] {
+  width: 10%;
+}
+.progressBarComponent .progressBar[data-progress="9%"] {
+  width: 9%;
+}
+.progressBarComponent .progressBar[data-progress="8%"] {
+  width: 8%;
+}
+.progressBarComponent .progressBar[data-progress="7%"] {
+  width: 7%;
+}
+.progressBarComponent .progressBar[data-progress="6%"] {
+  width: 6%;
+}
+.progressBarComponent .progressBar[data-progress="5%"] {
+  width: 5%;
+}
+.progressBarComponent .progressBar[data-progress="4%"] {
+  width: 4%;
+}
+.progressBarComponent .progressBar[data-progress="3%"] {
+  width: 3%;
+}
+.progressBarComponent .progressBar[data-progress="2%"] {
+  width: 2%;
+}
+.progressBarComponent .progressBar[data-progress="1%"] {
+  width: 1%;
+}
+.downloadListComponent table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+}
+.downloadListComponent button {
+  margin-top: 5px;
+}
+.downloadComponent td {
+  padding: 5px;
+  border: 1px solid grey;
+}
+.downloadComponent td.etaColumn,
+.downloadComponent td.statusColumn {
+  text-align: center;
+}

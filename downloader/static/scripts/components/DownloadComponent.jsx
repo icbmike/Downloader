@@ -2,21 +2,26 @@
 
 var React = require('react');
 
-//Services
-var ApiService = require('../services/apiService.js');
-
+var ProgressBarComponent = require('./ProgressBarComponent.jsx');
 
 module.exports = React.createClass({
 
-	//propTypes
-	propTypes: {
-		apiService: React.PropTypes.instanceOf(ApiService).isRequired
-	},
-
 	render: function(){
 		return (
-			<div className="downloadComponent">
-			</div>
+			<tr className="downloadComponent">
+				<td className="nameColumn">
+					{this.props.name}
+				</td>
+				<td className="progressColumn">
+					<ProgressBarComponent progress={this.props.progress} />
+				</td>
+				<td className="statusColumn">
+					{this.props.status}
+				</td>
+				<td className="etaColumn">
+					{this.props.eta}
+				</td>
+			</tr>
 		);
 	}
 });
