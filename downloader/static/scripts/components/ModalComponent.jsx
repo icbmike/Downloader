@@ -10,7 +10,6 @@ module.exports = React.createClass({
 	
 	interceptClick: function(e){
 		e.stopPropagation();
-		
 	},
 	
 	render: function(){

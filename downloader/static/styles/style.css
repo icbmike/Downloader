@@ -494,10 +494,10 @@ main .loginComponent {
   width: 100%;
   height: 100%;
   background-color: rgba(53, 76, 100, 0.8);
+  text-align: center;
 }
 .modalComponent .modalContainer {
-  width: 700px;
-  height: 300px;
+  display: inline-block;
   position: relative;
   margin: 30px auto;
   background-color: white;
@@ -505,12 +505,13 @@ main .loginComponent {
   -moz-box-shadow: 0px 7px 23px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 0px 7px 23px 0px rgba(50, 50, 50, 0.75);
   padding: 10px;
+  text-align: left;
 }
 .modalComponent .modalContainer .closeButton {
   position: absolute;
   width: 30px;
   height: 30px;
-  left: 705px;
+  right: -15px;
   top: -15px;
   border: none;
   padding: 0;
@@ -522,4 +523,15 @@ main .loginComponent {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+}
+.newDownloadComponent div {
+  margin-top: 10px;
+}
+.newDownloadComponent div label {
+  width: 50px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.newDownloadComponent button {
+  margin-top: 20px;
 }
