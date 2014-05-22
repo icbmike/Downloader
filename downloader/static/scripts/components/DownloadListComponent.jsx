@@ -7,6 +7,8 @@ var DownloadComponent = require('./DownloadComponent.jsx');
 
 //Services
 var ApiService = require('../services/apiService.js');
+var ModalComponent = require('./ModalComponent.jsx');
+var NewDownloadComponent = require('./NewDownloadComponent.jsx');
 
 module.exports = React.createClass({
 	
@@ -15,6 +17,19 @@ module.exports = React.createClass({
 		apiService: React.PropTypes.instanceOf(ApiService).isRequired
 	},
 
+	handleAddClick: function(){
+		var modal = (
+			<ModalComponent>
+				<NewDownloadComponent apiService={this.props.apiService} />
+			</ModalComponent>
+		);
+
+		//Render the modal over everything else so that it intercepts events
+		React.renderComponent(
+			modal,
+			document.getElementById("modalAnchor")
+		);
+	},
 
 	getInitialState: function(){
 		return {
@@ -22,7 +37,7 @@ module.exports = React.createClass({
 				{
 					id: 1,
 					name: 'DS9 Season 3',
-					progress: '100%',
+					progress: 54.2,
 					status: 'paused',
 					eta: '4 hours'	
 				}
@@ -54,7 +69,7 @@ module.exports = React.createClass({
 					</tr>
 					{downloads}
 				</table>
-				<button onClick={this.handleAddClick}>+</button>
+				<button onClick={this.handleAddClick}><i className="fa fa-plus-circle"></i></button>
 			</div>
 		);
 	}

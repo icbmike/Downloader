@@ -1,19 +1,6 @@
 @import "_variables";
 @import "_mixins";
 
-.loopingClass (@index: 100) when (@index > 0){
-
-	.progressBar[data-progress="@{index}"] {
-		// your resulting css
-		width: @index;
-	}
-
-	// next iteration
-	.loopingClass(@index - 1);
-}
-
-@iterations: 100%;
-
 .progressBarComponent{
 
 	width: 100%;
@@ -40,9 +27,6 @@
 		width: 100%;
 		display: inline-block;
 	}
-
-	// "call" the loopingClass the first time with highest value
-	.loopingClass (@iterations);
 	
 }
 

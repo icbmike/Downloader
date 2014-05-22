@@ -29,6 +29,7 @@ var AppComponent = React.createClass({
 					? <MainWindow apiService={this.props.apiService} />
 					: <LoginComponent loginSuccessHandler={this.loginHandler} apiService={this.props.apiService} ref="loginComponent" />
 				}
+				<div id="modalAnchor"></div>
 			</main>
 		);
 	}

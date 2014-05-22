@@ -5,12 +5,16 @@ var React = require('react');
 
 module.exports = React.createClass({
 	
-
 	render: function(){
+
+		var progressBarStyle = {
+			width: this.props.progress + '%'
+		};
+
 		return (
 			<div className="progressBarComponent">
-				<div className="progressBar" data-progress={this.props.progress}></div>
-				<span className="progressText">{this.props.progress}</span>
+				<div className="progressBar" style={progressBarStyle}></div>
+				<span className="progressText">{this.props.progress}%</span>
 			</div>
 		);
 	}
