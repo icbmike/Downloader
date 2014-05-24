@@ -12,6 +12,9 @@ module.exports = React.createClass({
 				<td className="urlColumn">
 					{this.props.URL}
 				</td>
+				<td className="cancelButton">
+					<button><i class="fa fa-times-circle-o"></i></button>
+				</td>
 			</tr>
 		);
 	}

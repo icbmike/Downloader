@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 	  	jshint: {
 	  		all: [
 	  			'Gruntfile.js', 
-	  			'downloader/static/scripts/*.js',
+	  			'client_app/scripts/*.js',
 	  			'!downloader/static/scripts/build.js'
   			]
 	  	},
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 	  	less: {
 	  		development: {
 	  			files: {
-	  				'downloader/static/styles/style.css' : 'downloader/static/styles/style.less'
+	  				'downloader/static/styles/style.css' : 'client_app/styles/style.less'
 	  			}
 	  		}
 	  	},
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 	  			transform: [ require('grunt-react').browserify ]
 	  		},
 	  		app: {
-	  			src: 'downloader/static/scripts/app.jsx',
+	  			src: 'client_app/scripts/app.jsx',
 	  			dest: 'downloader/static/scripts/build.js'
 	  		}
 	  	},
@@ -44,8 +44,8 @@ module.exports = function(grunt) {
 		watch: {
 			scripts: {
 				files : [
-					'downloader/static/scripts/**/*.js',
-					'downloader/static/scripts/**/*.jsx'
+					'client_app/scripts/**/*.js',
+					'client_app/scripts/**/*.jsx'
 					],
 				tasks: ['jshint', 'browserify'],
 				options: {
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
 			},
 
 			styles: {
-				files: 'downloader/static/styles/**/*.less',
+				files: 'client_app/styles/**/*.less',
 				tasks: ['less'],
 				options: {
 					spawn: false,
