@@ -44,6 +44,61 @@ ApiService.prototype.isAuthenticated = function() {
 	return this.token !== null;
 };
 
+ApiService.prototype.getDownloads = function(first_argument) {
+	var promise = $.ajax({
+		url: "/api/downloads",
+		username: this.token
+	});
+
+	return promise.then(
+		function(response, textStatus, jqXHR){
+			return response;
+		}, 
+		function(jqXHR, textStatus, errorThrown){
+			return null;
+		}
+	);
+};
+ApiService.prototype.getPendingDownloads = function() {
+	var promise = $.ajax({
+		url: "/api/pendingDownloads",
+		username: this.token
+	});
+
+	return promise.then(
+		function(response, textStatus, jqXHR){
+			return response;
+		}, 
+		function(jqXHR, textStatus, errorThrown){
+			return null;
+		}
+	);
+};
+
+ApiService.prototype.createDownload = function(name, url) {
+	var data = {
+		name: name,
+		url: url
+	};
+
+	var promise = $.ajax({
+		username: this.token,
+		data: JSON.stringify(data),
+		contentType: 'application/json',
+		url: "/api/pendingDownloads",
+		method: "POST"
+	});
+
+
+	return promise.then(
+		function(response, textStatus, jqXHR){
+			return response;
+		}, 
+		function(jqXHR, textStatus, errorThrown){
+			return null;
+		}
+	);
+};
 
 ApiService.prototype.register = function(username, password, callback) {
 	

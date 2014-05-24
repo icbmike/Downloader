@@ -4,11 +4,12 @@ var React = require('react');
 
 //Components
 var DownloadComponent = require('./DownloadComponent.jsx');
-
-//Services
-var ApiService = require('../services/apiService.js');
+var PendingDownload = require('./PendingDownload.jsx');
 var ModalComponent = require('./ModalComponent.jsx');
 var NewDownloadComponent = require('./NewDownloadComponent.jsx');
+//Services
+var ApiService = require('../services/apiService.js');
+
 
 module.exports = React.createClass({
 	
@@ -17,10 +18,37 @@ module.exports = React.createClass({
 		apiService: React.PropTypes.instanceOf(ApiService).isRequired
 	},
 
+	createNewDownload: function(name, url){
+
+		var newDownloadPromise = this.props.apiService.createDownload(name, url);
+
+		newDownloadPromise.then(
+			//success
+			function(){
+				React.unmountComponentAtNode(document.getElementById('modalAnchor'));
+				return this.props.apiService.getPendingDownloads();
+			}.bind(this),
+			//error
+			function(){
+				console.log("Error creating new download");
+			}).then(
+			function(downloads){
+				this.setState({
+					pendingDownloads: downloads
+				});
+			}.bind(this), 
+			function(error){
+				console.log("Error getting new downloads");
+			}
+		);
+
+	},
+
 	handleAddClick: function(){
+
 		var modal = (
 			<ModalComponent>
-				<NewDownloadComponent apiService={this.props.apiService} />
+				<NewDownloadComponent saveCallback={this.createNewDownload} />
 			</ModalComponent>
 		);
 
@@ -30,18 +58,37 @@ module.exports = React.createClass({
 			document.getElementById("modalAnchor")
 		);
 	},
+	componentWillMount: function(){
+		var downloadsPromise = this.props.apiService.getDownloads();
+		var pendingDownloadsPromise = this.props.apiService.getPendingDownloads();
+
+		downloadsPromise.then(
+			function(downloads){
+				this.setState({
+					downloads: downloads
+				});
+			}.bind(this), 
+			function(error){
+
+			}
+		);
+
+		pendingDownloadsPromise.then(
+			function(downloads){
+				this.setState({
+					pendingDownloads: downloads
+				});
+			}.bind(this), 
+			function(error){
+
+			}
+		);
+	},
 
 	getInitialState: function(){
 		return {
-			downloads: [
-				{
-					id: 1,
-					name: 'DS9 Season 3',
-					progress: 54.2,
-					status: 'paused',
-					eta: '4 hours'	
-				}
-			]
+			downloads:[],
+			pendingDownloads:[]
 		};
 	},
 
@@ -58,9 +105,18 @@ module.exports = React.createClass({
 					);
 		}.bind(this));
 
+
+		var pendingDownloads = this.state.pendingDownloads.map(function(pendingDownload) {
+			return (<PendingDownload 
+				key={pendingDownload.name}
+				name={pendingDownload.name}
+				URL={pendingDownload.url}
+				/>);
+		}.bind(this));
+
 		return (
 			<div className="downloadListComponent">
-				<table>
+				<table className="downloads">
 					<tr>
 						<th>Name</th>
 						<th>Progress</th>
@@ -68,6 +124,13 @@ module.exports = React.createClass({
 						<th>ETA</th>
 					</tr>
 					{downloads}
+				</table>
+				<table className="pendingDownloads">
+					<tr>
+						<th>Name</th>
+						<th>URL</th>
+					</tr>
+					{pendingDownloads}
 				</table>
 				<button onClick={this.handleAddClick}><i className="fa fa-plus-circle"></i></button>
 			</div>

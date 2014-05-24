@@ -4,6 +4,11 @@ var React = require('react');
 
 module.exports = React.createClass({
 	
+	//propTypes
+	propTypes: {
+		saveCallback: React.PropTypes.func.isRequired
+	},
+
 	getInitialState: function(){
 		return {
 			name: '',
@@ -16,6 +21,10 @@ module.exports = React.createClass({
 			name: this.refs.name.getDOMNode().value, 
 			url: this.refs.url.getDOMNode().value
 		});
+	},
+
+	handleClick: function (e) {
+		this.props.saveCallback(this.state.name, this.state.url);
 	},
 
 	render: function(){
