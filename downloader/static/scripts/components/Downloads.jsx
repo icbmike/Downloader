@@ -3,10 +3,10 @@
 var React = require('react');
 
 //Components
-var DownloadComponent = require('./DownloadComponent.jsx');
+var Download = require('./Download.jsx');
 var PendingDownload = require('./PendingDownload.jsx');
-var ModalComponent = require('./ModalComponent.jsx');
-var NewDownloadComponent = require('./NewDownloadComponent.jsx');
+var Modal = require('./Modal.jsx');
+var NewDownload = require('./NewDownload.jsx');
 //Services
 var ApiService = require('../services/apiService.js');
 
@@ -47,9 +47,9 @@ module.exports = React.createClass({
 	handleAddClick: function(){
 
 		var modal = (
-			<ModalComponent>
-				<NewDownloadComponent saveCallback={this.createNewDownload} />
-			</ModalComponent>
+			<Modal>
+				<NewDownload saveCallback={this.createNewDownload} />
+			</Modal>
 		);
 
 		//Render the modal over everything else so that it intercepts events
@@ -95,7 +95,7 @@ module.exports = React.createClass({
 	render: function(){
 
 		var downloads = this.state.downloads.map(function(download) {
-			return (<DownloadComponent
+			return (<Download
 						key={download.id}
 						name={download.name} 
 						progress={download.progress}

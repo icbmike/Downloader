@@ -2,11 +2,11 @@
 
 var React = require('react');
 
-var TabComponent = require('./TabComponent.jsx');
+var TabbedContainer = require('./TabbedContainer.jsx');
 
-var DownloadListComponent = require('./DownloadListComponent.jsx');
+var Downloads = require('./Downloads.jsx');
 
-var SettingsComponent = require('./SettingsComponent.jsx');
+var Settings = require('./Settings.jsx');
 
 //Services
 var ApiService = require('../services/apiService.js');
@@ -22,12 +22,12 @@ module.exports = React.createClass({
 		return(
 			<div className="mainWindow">
 				<h1>Downloader</h1>
-				<TabComponent>
-					<DownloadListComponent apiService={this.props.apiService} tabTitle="Downloads" />
+				<TabbedContainer>
+					<Downloads apiService={this.props.apiService} tabTitle="Downloads" />
 					
-					<SettingsComponent tabTitle="Settings" />
+					<Settings tabTitle="Settings" />
 
-				</TabComponent>
+				</TabbedContainer>
 			</div>
 		);
 	}

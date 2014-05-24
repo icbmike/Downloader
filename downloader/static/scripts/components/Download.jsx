@@ -2,7 +2,7 @@
 
 var React = require('react');
 
-var ProgressBarComponent = require('./ProgressBarComponent.jsx');
+var ProgressBar = require('./ProgressBar.jsx');
 
 module.exports = React.createClass({
 
@@ -13,7 +13,7 @@ module.exports = React.createClass({
 					{this.props.name}
 				</td>
 				<td className="progressColumn">
-					<ProgressBarComponent progress={this.props.progress} />
+					<ProgressBar progress={this.props.progress} />
 				</td>
 				<td className="statusColumn">
 					{this.props.status}
